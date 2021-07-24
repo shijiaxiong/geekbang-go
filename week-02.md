@@ -7,22 +7,22 @@
 var ErrNotFound = error.New("rows not found")
 
 func GetUserInfo() (user User, err error) {
-  if err == sql.ErrNoRows {
-    return nil, errors.Wrap(ErrNotFound, "user info not exits")
-	}
+    if err == sql.ErrNoRows {
+			return nil, errors.Wrap(ErrNotFound, "user info not exits")
+		}
 }
 
 // 业务层
 func UserLogic() {
-  userInfo,err := dao.GetUserInfo()
-  if err != nil {
-    if errors.Is(dao.ErrNotFound) {
-      // 对客户端返回对饮的错误提示信息。
-      return XXX
-    } else {
-      ...
-    }
-  }
+    userInfo,err := dao.GetUserInfo()
+		if err != nil {
+        if errors.Is(dao.ErrNotFound) {
+				// 对客户端返回对饮的错误提示信息。
+            return XXX
+				} else {
+					...
+				}
+		}
 }
 
 ```
